@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "pawamoy-testing"
-version = "0.1.0"
+version = "0.0.1"
 description = "Testing this great template"
 authors = ["Timothée Mazzucotelli <pawamoy@pm.me>"]
 license = "ISC License"

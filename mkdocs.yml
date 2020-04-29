@@ -1,0 +1,36 @@
+site_name: Pawamoy Testing
+site_description: Testing this great template
+site_url: https://pawamoy.github.io/pawamoy-testing
+repo_url: https://github.com/pawamoy/pawamoy-testing
+repo_name: pawamoy/pawamoy-testing
+
+nav:
+  - Overview: index.md
+  - "Command line usage": command_line_usage.md
+  - Reference:
+    - cli.py: reference/cli.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
+  - Changelog: changelog.md
+  - Credits: credits.md
+
+theme:
+  name: material
+
+extra_css:
+  - css/mkdocstrings.css
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - toc:
+      permalink: "¤"
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - src/pawamoy_testing

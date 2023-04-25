@@ -18,7 +18,7 @@ jobs:
       - name: Upload dists artifact
         uses: actions/upload-artifact@v3
         with:
-          name: {{ repository_name }}-insiders
+          name: pawamoy-testing-insiders
           path: ./dist/*
       - name: Create release and upload assets
         uses: softprops/action-gh-release@v1

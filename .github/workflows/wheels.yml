@@ -1,7 +1,6 @@
+name: wheels
 
-name: Build
-
-on: [tag]
+on: push
 
 jobs:
   build_wheels:

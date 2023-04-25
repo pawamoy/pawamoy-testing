@@ -10,7 +10,6 @@ Note that in order to access the Insiders  repository,
 you need to [become an eligible sponsor] of @pawamoy on GitHub.
 
   [pip]: #with-pip
-  [docker]: #with-docker
   [git]: #with-git
   [become an eligible sponsor]: index.md#how-to-become-a-sponsor
 

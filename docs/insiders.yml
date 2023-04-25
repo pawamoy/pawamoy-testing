@@ -1,0 +1,25 @@
+goals:
+  500:
+    name: Brutal Black
+    features:
+    - name: Some Feature 1a
+      ref: some-feature-1a
+      since: 2022/01/01
+    - name: Some Feature 1b
+      ref: some-feature-1b
+      since: 2022/02/02
+  1000:
+    name: Happy Hardcore
+    features:
+    - name: Some Feature 2a
+      ref: some-feature-2a
+      since: 2023/03/03
+    - name: Some Feature 2b
+      ref: some-feature-2b
+      since: null
+  2000:
+    name: Breakcore
+    features:
+    - name: Some Feature 3
+      ref: some-feature-3
+      since: null

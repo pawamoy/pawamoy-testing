@@ -44,62 +44,6 @@ access token you generated in the previous step. Note that the personal access
 token must be kept secret at all times, as it allows the owner to access your
 private repositories.
 
-### with docker
-
-In case you want to use Pawamoy Testing Insiders from within Docker, some
-additional steps are necessary. While we cannot provide a hosted Docker image
-for Insiders[^2], [GitHub Container Registry] allows for simple and
-comfortable self-hosting:
-
-1.  [Fork the Insiders repository]
-2.  Enable [GitHub Actions] on your fork[^3]
-3.  Create a new personal access token[^4]
-    1.  Go to https://github.com/settings/tokens
-    2.  Click on [Generate a new token]
-    3.  Enter a name and select the [`write:packages`][scopes] scope
-    4.  Generate the token and store it in a safe place
-4.  Add a [GitHub Actions secret] on your fork
-    1.  Set the name to `GHCR_TOKEN`
-    2.  Set the value to the personal access token created in the previous step
-5.  [Create a new release] to build and publish the Docker image
-6.  Install [Pull App] on your fork to stay in-sync with upstream
-
-The [`publish`][publish] workflow[^5] is automatically run when a new tag
-(release) is created. When a new Insiders version is released on the upstream 
-repository, the [Pull App] will create a pull request with the changes and
-pull in the new tag, which is picked up by the [`publish`][publish] workflow
-that builds and publishes the Docker image automatically to your private
-registry.
-
-Now, you should be able to pull the Docker image from your private registry:
-
-```
-docker login -u ${GH_USERNAME} -p ${GHCR_TOKEN} ghcr.io
-docker pull ghcr.io/${GH_USERNAME}/pawamoy-testing-insiders
-```
-
-  [^2]:
-    Earlier, Insiders provided a dedicated Docker image which was available to
-    all sponsors. On March 21, 2021, the image was deprecated for the reasons
-    outlined and discussed in #2442. It was removed on June 1, 2021.
-
-  [^3]:
-    When forking a repository, GitHub will disables all workflows. While this
-    is a reasonable default setting, you need to enable GitHub Actions to be
-    able to automatically build and publish a Docker image on
-    [GitHub Container Registry].
-
-  [^4]:
-    While you could just add the `write:packages` scope to the personal access
-    token created to access the Insiders repository, it's safer to create a
-    dedicated token which you'll only use for publishing the Docker image.
-
-  [^5]:
-    The Insiders repository contains two GitHub Actions workflows:
-
-    - `build.yml` – Build and lint the project (disabled on forks)
-    - `publish.yml` – Build and publish the Docker image
-
 ### with git
 
 Of course, you can use Pawamoy Testing Insiders directly from `git`:
@@ -108,12 +52,10 @@ Of course, you can use Pawamoy Testing Insiders directly from `git`:
 git clone git@github.com:pawamoy-insiders/pawamoy-testing.git pawamoy-testing
 ```
 
-The theme will reside in the folder `pawamoy-testing/material`. When cloning
-from `git`, the theme must be installed, so MkDocs can find the built-in
-plugins:
+When cloning from `git`, the package must be installed:
 
 ```
-pip install -e pawamoy-testing
+pip install pawamoy-testing
 ```
 
   [GitHub Container Registry]: https://docs.github.com/en/packages/guides/about-github-container-registry

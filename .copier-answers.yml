@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier
+_commit: 0.15.5-3-g2f8370b
+_src_path: /media/data/dev/copier-pdm
+author_email: pawamoy@pm.me
+author_fullname: Timothee Mazzucotelli
+author_username: pawamoy
+copyright_date: '2023'
+copyright_holder: Timothee Mazzucotelli
+copyright_holder_email: pawamoy@pm.me
+copyright_license: ISC License
+insiders: true
+project_description: Testing this great template
+project_name: Pawamoy Testing
+python_package_command_line_name: pawamoy-testing
+python_package_distribution_name: pawamoy-testing
+python_package_import_name: pawamoy_testing
+repository_name: pawamoy-testing
+repository_namespace: pawamoy
+repository_provider: github.com
+

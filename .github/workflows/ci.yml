@@ -92,7 +92,8 @@ jobs:
         - "3.11"
         - "3.12"
         - "3.13"
-        resolution: highest
+        resolution:
+        - highest
         include:
         - os: ubuntu-latest
           resolution: lowest

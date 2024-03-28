@@ -97,7 +97,6 @@ jobs:
         include:
         - os: ubuntu-latest
           resolution: lowest
-          env: UV_RESOLUTION=lowest
         exclude: ${{ fromJSON(needs.exclude-test-jobs.outputs.jobs) }}
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.python-version == '3.13' }}
@@ -116,6 +115,8 @@ jobs:
       run: pip install uv
 
     - name: Install dependencies
+      env:
+        UV_RESOLUTION: ${{ matrix.resolution }}
       run: make setup
 
     - name: Run the test suite

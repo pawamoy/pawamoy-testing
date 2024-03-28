@@ -76,7 +76,7 @@ jobs:
           echo 'jobs=[
             {"os": "macos-latest", "resolution": "lowest"},
             {"os": "windows-latest", "resolution": "lowest"}
-          ]' >> $GITHUB_OUTPUT
+          ]' | tr -d '[:space:]' >> $GITHUB_OUTPUT
         fi
 
   tests:

@@ -73,7 +73,10 @@ jobs:
             {"python-version": "3.13"}
           ]' | tr -d '[:space:]' >> $GITHUB_OUTPUT
         else
-          echo 'jobs=[]' >> $GITHUB_OUTPUT
+          echo 'jobs=[
+            {"os": "macos-latest", "resolution": "lowest"},
+            {"os": "windows-latest", "resolution": "lowest"}
+          ]' >> $GITHUB_OUTPUT
         fi
 
   tests:
@@ -94,9 +97,7 @@ jobs:
         - "3.13"
         resolution:
         - highest
-        include:
-        - os: ubuntu-latest
-          resolution: lowest
+        - lowest
         exclude: ${{ fromJSON(needs.exclude-test-jobs.outputs.jobs) }}
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.python-version == '3.13' }}

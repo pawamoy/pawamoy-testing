@@ -92,8 +92,10 @@ jobs:
         - "3.11"
         - "3.12"
         - "3.13"
+        resolution: highest
         include:
         - os: ubuntu-latest
+          resolution: lowest
           env: UV_RESOLUTION=lowest
         exclude: ${{ fromJSON(needs.exclude-test-jobs.outputs.jobs) }}
     runs-on: ${{ matrix.os }}

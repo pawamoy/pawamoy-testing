@@ -1,0 +1,43 @@
+name: copier
+
+on: push
+  # schedule:
+  # - cron: "0 18 * * 4"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        fetch-tags: true
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v1
+      with:
+        enable-cache: true
+    - name: Checkout new branch
+      run: |
+        git branch -D copier-update || true
+        git push origin --delete copier-update || true
+        git checkout -b copier-update
+    - name: Run Copier update
+      run: |
+        uvx --from copier==9.3.* --with copier-templates-extensions copier update --trust --skip-answered --defaults
+        git checkout --ours .
+    - name: Commit changes and create PR
+      run: |
+        git config --global user.name "Timothée Mazzucotelli"
+        git config --global user.email "pawamoy@users.noreply.github.com"
+        git add -A .
+        if git commit -am "chore: Template upgrade"; then \
+          git push --set-upstream origin copier-update; \
+          gh pr create -B main -H copier-update --title 'chore: Template upgrade' --body ''; \
+        fi
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

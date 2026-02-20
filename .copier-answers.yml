@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier.
+_commit: 1.11.13
+_src_path: /home/runner/work/copier-uv/copier-uv
+author_email: dev@pawamoy.fr
+author_fullname: Timothee Mazzucotelli
+author_username: pawamoy
+copyright_date: '2026'
+copyright_holder: Timothee Mazzucotelli
+copyright_holder_email: dev@pawamoy.fr
+copyright_license: ISC
+project_description: Testing this great template
+project_name: Pawamoy Testing
+python_package_command_line_name: pawamoy-testing
+python_package_distribution_name: pawamoy-testing
+python_package_import_name: pawamoy_testing
+repository_name: pawamoy-testing
+repository_namespace: pawamoy
+repository_provider: github.com
+

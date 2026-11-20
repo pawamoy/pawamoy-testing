@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block outdated %}
+  {# Mike appends the deployed version to site_url. #}
+  {% if config.site_url[-4:] == "/dev" or config.site_url[-5:] == "/dev/" %}
+    You are viewing documentation for an <strong>unreleased version</strong>.
+  {% else %}
+    You are not viewing documentation for the <strong>latest stable release</strong>.
+  {% endif %}
+  <a href="{{ '../' ~ base_url }}"><strong>Go to the latest release.</strong></a>
+{% endblock %}
+
+{% block announce %}
+  <strong>Fund this project</strong> through
+  <a href="https://github.com/sponsors/pawamoy"><strong>sponsorship</strong></a>
+  <span class="twemoji heart pulse">
+    {% include ".icons/octicons/heart-fill-16.svg" %}
+  </span> &mdash;
+  Follow
+  <strong>@pawamoy</strong> on
+  <a rel="me" href="https://fosstodon.org/@pawamoy">
+    <span class="twemoji mastodon">
+      {% include ".icons/fontawesome/brands/mastodon.svg" %}
+    </span>
+    <strong>Fosstodon</strong>
+  </a>
+  for updates
+{% endblock %}
